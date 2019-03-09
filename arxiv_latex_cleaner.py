@@ -161,7 +161,7 @@ def _split_all_files(parameters):
   file_splits = {
       'all':
           _list_all_files(
-              parameters['input_folder'], ignore_dirs=['.git' + os.sep]),
+              parameters['input_folder'], ignore_dirs=[re.escape('.git' + os.sep)]),
       'in_root': [
           f for f in os.listdir(parameters['input_folder'])
           if os.path.isfile(os.path.join(parameters['input_folder'], f))
